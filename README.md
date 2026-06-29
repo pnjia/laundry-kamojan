@@ -1,22 +1,20 @@
-# Kamojan Laundry
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-AI-first documentation repository for the Kamojan Laundry website project.
+# Run and deploy your AI Studio app
 
-## Status
+This contains everything you need to run your app locally.
 
-🚧 Documentation is being developed incrementally.
+View your app in AI Studio: https://ai.studio/apps/3ee6e3c6-daea-42c5-ab42-a461993a677a
 
-## Roadmap
+## Run Locally
 
-- [ ] Project Overview
-- [ ] Product Requirements
-- [ ] Information Architecture
-- [ ] Content Specification
-- [ ] Design System
-- [ ] UI Specification
-- [ ] Technical Specification
-- [ ] Component Inventory
-- [ ] SEO Specification
-- [ ] Implementation Roadmap
-- [ ] Acceptance Criteria
-- [ ] AI Implementation Rules
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
