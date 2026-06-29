@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Clock, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram, Facebook, Droplets } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,8 +8,10 @@ export function Footer() {
         
         {/* Brand */}
         <div className="flex flex-col gap-4">
-          <Link to="/" className="text-brand-canvas-soft font-sans font-black text-[24px] tracking-tight">
-            Kamojan<span className="text-brand-primary">Laundry</span>
+          <Link to="/" className="flex items-center gap-2 group w-fit">
+            <span className="text-brand-canvas-soft font-sans font-black text-[22px] tracking-tight">
+              Kamojan<span className="text-brand-primary">Laundry</span>
+            </span>
           </Link>
           <p className="text-brand-canvas-soft font-sans text-[14px]">
             Layanan laundry bersih, rapi, dan tepat waktu untuk mahasiswa dan warga sekitar Cicantayan, Sukabumi.

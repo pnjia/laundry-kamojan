@@ -9,7 +9,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "content", ...props }, ref) => {
-    const baseStyles = "rounded-xl p-6 transition-all";
+    const baseStyles = "rounded-xl p-6 transition-colors duration-200";
     
     const variants = {
       content: "bg-brand-canvas text-brand-ink",

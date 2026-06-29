@@ -1,7 +1,7 @@
-import { Card } from "@/components/ui/Card";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function FAQ() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -17,26 +17,49 @@ export default function FAQ() {
   return (
     <div className="flex flex-col">
       <section className="bg-brand-canvas-soft py-16 md:py-24 px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-brand-ink font-sans font-black text-[40px] md:text-[64px] tracking-tight mb-6">Pertanyaan Umum</h1>
-          <p className="text-brand-body font-sans text-[16px] md:text-[20px]">
-            Temukan jawaban untuk pertanyaan yang sering diajukan.
-          </p>
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <span className="inline-block text-brand-body font-sans text-[13px] tracking-widest uppercase mb-6">Pertanyaan Umum</span>
+            <h1 className="text-brand-ink font-sans font-black text-[32px] md:text-[48px] tracking-tight mb-6">
+              Bantuan & Informasi
+            </h1>
+            <p className="text-brand-body font-sans text-[16px] md:text-[20px] max-w-2xl leading-relaxed">
+              Temukan jawaban untuk pertanyaan yang paling sering ditanyakan oleh pelanggan kami.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="bg-brand-canvas py-16 px-4 md:px-6">
-        <div className="mx-auto max-w-3xl flex flex-col gap-4">
+      <section className="bg-brand-canvas py-16 md:py-24 px-4 md:px-6">
+        <div className="mx-auto max-w-3xl flex flex-col">
           {faqs.map((faq, i) => (
-            <Card key={i} variant="converter" className="cursor-pointer" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-              <div className="flex justify-between items-center">
-                <h4 className="text-brand-ink font-sans font-semibold text-[16px]">{faq.q}</h4>
-                <ChevronDown className={cn("text-brand-ink transition-transform", openFaq === i ? "rotate-180" : "")} />
+            <div 
+              key={i} 
+              className="border-b border-gray-200 cursor-pointer group" 
+              onClick={() => setOpenFaq(openFaq === i ? null : i)}
+            >
+              <div className="flex justify-between items-center py-6">
+                <h4 className="text-brand-ink font-sans font-semibold text-[16px] md:text-[18px] group-hover:text-brand-primary transition-colors pr-6">
+                  {faq.q}
+                </h4>
+                <ChevronDown className={cn("text-brand-ink transition-transform duration-300 flex-shrink-0", openFaq === i ? "rotate-180" : "")} />
               </div>
-              {openFaq === i && (
-                <p className="text-brand-body font-sans text-[14px] mt-4 pt-4 border-t border-gray-200">{faq.a}</p>
-              )}
-            </Card>
+              <AnimatePresence>
+                {openFaq === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-brand-body font-sans text-[15px] md:text-[16px] leading-relaxed pb-6 pr-6">
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </section>

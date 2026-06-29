@@ -9,7 +9,7 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", asChild = false, ...props }, ref) => {
-    const baseStyles = "inline-flex items-center justify-center font-sans font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary disabled:pointer-events-none disabled:opacity-50 text-[16px] leading-[24px]";
+    const baseStyles = "inline-flex items-center justify-center font-sans font-semibold transition-all duration-150 ease-out active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary disabled:pointer-events-none disabled:opacity-50 text-[16px] leading-[24px]";
     
     const variants = {
       primary: "bg-brand-primary text-brand-ink hover:bg-brand-primary-active active:bg-brand-primary-neutral px-6 py-3 rounded-xl",
